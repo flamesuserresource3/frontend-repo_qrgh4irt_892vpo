@@ -1,28 +1,35 @@
-import { useState } from 'react'
+import CountdownTimer from './components/CountdownTimer';
+import MessageOfTheDay from './components/MessageOfTheDay';
+import ThoughtPing from './components/ThoughtPing';
+import SharedTodoList from './components/SharedTodoList';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
+      <header className="px-6 py-8">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-end gap-4">
+          <div>
+            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">Together, From Afar</h1>
+            <p className="text-white/70 mt-2">Count down to your next meet, send sweet notes, ping a heart, and plan your day together.</p>
+          </div>
         </div>
-      </div>
-    </div>
-  )
-}
+      </header>
 
-export default App
+      <main className="max-w-6xl mx-auto px-6 pb-16 space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <CountdownTimer />
+          <ThoughtPing />
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <MessageOfTheDay />
+          <SharedTodoList />
+        </div>
+      </main>
+
+      <footer className="max-w-6xl mx-auto px-6 pb-10 text-xs text-white/60">
+        Built with love for long-distance hearts.
+      </footer>
+    </div>
+  );
+}
